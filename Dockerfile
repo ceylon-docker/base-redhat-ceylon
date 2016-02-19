@@ -9,7 +9,8 @@ LABEL org.ceylon-lang.dockerfile.description="Base Fedora image for dealing with
     org.ceylon-lang.dockerfile.vendor="RedHat" \
     org.ceylon-lang.dockerfile.version="1.0"
 
-RUN useradd -ms /bin/bash -G wheel ceylon && \
+RUN userdel -r jboss && \
+    useradd -ms /bin/bash -G wheel ceylon && \
     echo 'ceylon ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/ceylon && \
     sed -i -e "s/Defaults    requiretty.*/#Defaults    requiretty/g" /etc/sudoers
 
