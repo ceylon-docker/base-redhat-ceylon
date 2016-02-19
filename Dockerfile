@@ -11,9 +11,6 @@ LABEL org.ceylon-lang.dockerfile.description="Base Fedora image for dealing with
 
 RUN useradd -ms /bin/bash -G wheel ceylon && echo 'ceylon ALL=(ALL:ALL) NOPASSWD: ALL' > /etc/sudoers.d/ceylon
 
-RUN mkdir /output
-VOLUME /output
-
 USER ceylon
 
 WORKDIR /home/ceylon
